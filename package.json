@@ -1,0 +1,30 @@
+{
+  "name": "smsbackend",
+  "version": "1.0.0",
+  "description": "backend for our student management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "student",
+    "lecturers",
+    "portal",
+    "profile"
+  ],
+  "author": "Dadeolu Ariyomo",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "install": "^0.13.0",
+    "morgan": "^1.10.1",
+    "npm": "^11.11.1",
+    "prisma-client": "^0.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "prisma": "^7.5.0"
+  }
+}

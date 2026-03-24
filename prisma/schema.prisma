@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  gender    String?
+  level     Int?
+  departmentId Int?
+  department Department? @relation(fields: [departmentId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isDeleted Boolean  @default(false)
+  isHOD     Boolean  @default(false)
+  isDean    Boolean  @default(false)
+}
+
+
+model Faculty{
+  id Int @id @default(autoincrement())
+  name String
+  departments Department[]
+  deanId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isDeleted Boolean @default(false)
+
+}
+model Department{
+  id Int @id @default(autoincrement())
+  name String
+  users User[]
+  hodId Int
+  facultyId Int
+  faculty Faculty @relation(fields: [facultyId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isDeleted Boolean @default(false)
+}
