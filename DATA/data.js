@@ -1,4 +1,4 @@
-const users=[
+let users=[
     {
     id:1,
     name:"John Doe",
@@ -15,6 +15,15 @@ const users=[
     }
 
 ];
+
+let books=[
+    {
+        id:1,
+        title:"",
+        author:"",
+        publishedDate:"",
+    }
+]
 
 // export default users;
 module.exports={

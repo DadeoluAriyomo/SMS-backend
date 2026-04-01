@@ -64,6 +64,8 @@ app.get('/department',(req,res)=>{
 app.get("/get-users", userController.getAllUsers);
 app.get("/get-user/:id",userController.getUserById);
 app.post("/create-user",userController.createUser);
+app.put("/update-user/:id",userController.updateUser);
+app.delete("/delete-user/:id",userController.deleteUser);
 
 app.listen(8000,()=>{
     console.log('Server up and running on port 8000')
