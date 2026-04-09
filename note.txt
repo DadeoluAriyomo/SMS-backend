@@ -1,0 +1,16 @@
+console.log
+2+2 resolves immediateley
+
+function domultiplethingsSynchronous(){
+    const answer=2+2;
+    const StringedResponse =your answer is ${answer};
+    console.log()
+}
+
+function domultiplethingsAsynchronously(){
+    const id=2;
+
+    const dbrecord=doDatabaseQuery(id);
+    const response = stringify(dbrecord);
+    console.log(response);
+}

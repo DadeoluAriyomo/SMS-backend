@@ -1,7 +1,10 @@
 const express = require('express');
 const logger = require('morgan');
 const userController= require('./controllers/usersController');
-const users = require('./DATA/data');
+const bookController= require('./controllers/bookController');
+const {users,books} = require('./DATA/data');
+
+
 
 
 const app = express();
@@ -61,12 +64,28 @@ app.get('/department',(req,res)=>{
     })
 })
 
-app.get("/get-users", userController.getAllUsers);
-app.get("/get-user/:id",userController.getUserById);
-app.post("/create-user",userController.createUser);
+// app.get("/get-users", userController.getAllUsers);
+// app.get("/get-user/:id",userController.getUserById);
+// app.post("/create-user",userController.createUser);
+// app.put("/update-user/:id",userController.updateUser);
+// app.delete("/delete-user/:id",userController.deleteUser);
+
+app.get("/get-books", bookController.getAllBooks);
+app.get("/get-books/:id",bookController.getBooksById);
+app.post("/create-books",bookController.createBooks);
+app.put("/update-books/:id",bookController.updateBook);
+app.delete("/delete-books/:id",bookController.deleteBook);
+
+app.get('/get-users',userController.getAllUsers);
+app.post('/create-user',userController.createUser);
+app.get('/get-user/:id',userController.getUserById);
+app.delete('/delete-user/:id',userController.deleteUser);
 app.put("/update-user/:id",userController.updateUser);
-app.delete("/delete-user/:id",userController.deleteUser);
+
 
 app.listen(8000,()=>{
     console.log('Server up and running on port 8000')
 })
+//npm install @prisma/client
+// npm install @prisma/adapter-mariadb
+//npx prisma generate
